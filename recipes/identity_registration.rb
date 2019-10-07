@@ -34,7 +34,7 @@ admin_project = node['openstack']['identity']['admin_project']
 admin_domain = node['openstack']['identity']['admin_domain_name']
 service_domain_name = node['openstack']['telemetry']['conf']['keystone_authtoken']['user_domain_name']
 connection_params = {
-  openstack_auth_url:     "#{auth_url}/auth/tokens",
+  openstack_auth_url:     auth_url,
   openstack_username:     admin_user,
   openstack_api_key:      admin_pass,
   openstack_project_name: admin_project,
