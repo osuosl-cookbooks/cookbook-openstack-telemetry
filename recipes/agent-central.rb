@@ -33,5 +33,6 @@ service 'ceilometer-agent-central' do
   service_name platform['agent_central_service']
   subscribes :restart, "template[#{node['openstack']['telemetry']['conf_file']}]"
   subscribes :restart, "template[#{::File.join(node['openstack']['telemetry']['conf_dir'], 'polling.yaml')}]"
+  subscribes :restart, "template[#{::File.join(node['openstack']['telemetry']['conf_dir'], 'pipeline.yaml')}]"
   action [:enable, :start]
 end

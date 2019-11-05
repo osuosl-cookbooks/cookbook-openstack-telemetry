@@ -114,3 +114,13 @@ template ::File.join(node['openstack']['telemetry']['conf_dir'], 'polling.yaml')
     meters: node['openstack']['telemetry']['polling']['meters']
   )
 end
+
+template ::File.join(node['openstack']['telemetry']['conf_dir'], 'pipeline.yaml') do
+  source 'pipeline.yaml.erb'
+  owner node['openstack']['telemetry']['user']
+  group node['openstack']['telemetry']['group']
+  mode 0o0640
+  variables(
+    publishers: node['openstack']['telemetry']['pipeline']['publishers']
+  )
+end

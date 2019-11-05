@@ -99,6 +99,8 @@ default['openstack']['telemetry']['polling']['meters'] =
     hardware.network.ip.incoming.datagrams
     hardware.network.ip.outgoing.datagrams
   )
+# Configuration for /etc/ceilometer/pipeline.yaml
+default['openstack']['telemetry']['pipeline']['publishers'] = ['gnocchi://']
 
 %w(telemetry telemetry_metric aodh).each do |ts|
   # specify whether to enable SSL for ceilometer API endpoint
